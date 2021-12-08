@@ -4,16 +4,14 @@
 if __name__ == '__main__':
     tpl = tuple(input('tpl = ').split())
 
-    i = 1
     flag = False
 
-    while i < len(tpl) - 1:
-        if int(tpl[i]) > int(tpl[i - 1]) \
-                and int(tpl[i]) > int(tpl[i + 1]):
+    for idx, value in enumerate(tpl[1:-1], 1):
+        if int(value) > int(tpl[idx - 1]) \
+                and int(value) > int(tpl[idx + 1]):
             flag = True
-            print(f'ind1 = {i - 1}, ind2 = {i}, ind3 = {i + 1}')
+            print(f'ind1 = {idx - 1}, ind2 = {idx}, ind3 = {idx + 1}')
             break
-        i += 1
 
     if not flag:
         print('Таких троек нет')
